@@ -1,12 +1,17 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
+#include "Thomas.h"
+#include "Bob.h"
 
 using namespace sf;
 
 class Engine {
 private:
 	TextureHolder th;
+
+	Thomas m_Thomas;
+	Bob m_Bob;
 
 	const int TILE_SIZE = 50;//each tile in the sprite sheet is fifty pixels wide and fifty pixels high.
 	const int VERTEX_IN_QUAD = 4;
