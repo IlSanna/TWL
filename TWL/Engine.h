@@ -3,6 +3,7 @@
 #include "TextureHolder.h"
 #include "Thomas.h"
 #include "Bob.h"
+#include "LevelManager.h"
 
 using namespace sf;
 
@@ -12,6 +13,8 @@ private:
 
 	Thomas m_Thomas;
 	Bob m_Bob;
+
+	LevelManager m_LM;
 
 	const int TILE_SIZE = 50;//each tile in the sprite sheet is fifty pixels wide and fifty pixels high.
 	const int VERTEX_IN_QUAD = 4;
@@ -37,7 +40,7 @@ private:
 
 	
 	bool m_Playing = false;// Is the game currently playing?
-	bool m_Character1 = true;// Is character 1 or 2 the current focus of the camera
+	bool m_Character1 = false;// Is character 1 or 2 the current focus of the camera
 	bool m_SplitScreen = false;//or fullscreen
 	
 	float m_TimeRemaining = 10;
@@ -45,6 +48,15 @@ private:
 	
 	bool m_NewLevelRequired = true;// Is it time for a new/first level?
 	
+	// The vertex array for the level tiles
+	VertexArray m_VALevel;
+	// The 2d array with the map for the level
+	int** m_ArrayLevel = NULL;
+	// Texture for the level tiles
+	Texture m_TextureTiles;
+
+	void loadLevel();
+
 	void input();
 	void update(float deltaTimeAsSeconds);
 	void draw();
