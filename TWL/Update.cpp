@@ -10,6 +10,21 @@ void Engine::update(float deltaTimeAsSeconds) {
 		
 		m_Thomas.update(deltaTimeAsSeconds);
 		m_Bob.update(deltaTimeAsSeconds);
+		
+		// Detect collisions 
+		if (detectCollisions(m_Thomas) && detectCollisions(m_Bob)) {//one of them reached the goal
+			m_NewLevelRequired = true;
+		}
+		else {
+			detectCollisions(m_Bob);//not so sure
+		}
+		// Let bob and thomas jump on each others heads
+		if (m_Bob.getFeet().intersects(m_Thomas.getHead())) {
+			m_Bob.stopFalling(m_Thomas.getHead().top);
+		}
+		else if (m_Thomas.getFeet().intersects(m_Bob.getHead())) {
+			m_Thomas.stopFalling(m_Bob.getHead().top);
+		}
 
 		m_TimeRemaining -= deltaTimeAsSeconds;// Count down the time the player has left
 		

@@ -56,6 +56,7 @@ private:
 	Texture m_TextureTiles;
 
 	void loadLevel();
+	bool detectCollisions(PlayableCharacter& character);//polymorphic argument
 
 	void input();
 	void update(float deltaTimeAsSeconds);
