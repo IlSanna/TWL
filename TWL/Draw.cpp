@@ -30,6 +30,7 @@ void Engine::draw() {
 		m_Window.setView(m_BGRightView);
 		m_Window.draw(m_BackgroundSprite);
 		m_Window.setView(m_RightView);
+		
 		m_Window.draw(m_VALevel, &m_TextureTiles);
 		m_Window.draw(m_Thomas.getSprite());
 		m_Window.draw(m_Bob.getSprite());

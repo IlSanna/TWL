@@ -16,9 +16,9 @@ int** LevelManager::nextLevel(VertexArray& rVaLevel) {
 	switch (m_CurrentLevel) {
 	case 1:
 		levelToLoad = "src/levels/level1.txt";
-		m_StartPosition.x = 100;
-		m_StartPosition.y = 100;
-		m_BaseTimeLimit = 30.0f;
+		m_StartPosition.x = 50;
+		m_StartPosition.y = 50;
+		m_BaseTimeLimit = 70.0f;
 		break;
 	case 2:
 		levelToLoad = "src/levels/level2.txt";
