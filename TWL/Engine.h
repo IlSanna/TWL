@@ -4,6 +4,7 @@
 #include "Thomas.h"
 #include "Bob.h"
 #include "LevelManager.h"
+#include "HUD.h"
 
 using namespace sf;
 
@@ -15,6 +16,10 @@ private:
 	Bob m_Bob;
 
 	LevelManager m_LM;
+
+	HUD m_HUD;
+	int m_FramesSinceLastHUDUpdate = 0;
+	int m_TargetFramesPerHUDUpdate = 500;
 
 	const int TILE_SIZE = 50;//each tile in the sprite sheet is fifty pixels wide and fifty pixels high.
 	const int VERTEX_IN_QUAD = 4;

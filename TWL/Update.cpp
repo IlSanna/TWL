@@ -46,4 +46,18 @@ void Engine::update(float deltaTimeAsSeconds) {
 			m_MainView.setCenter(m_Bob.getCenter());
 		}
 	}
+	
+	// Increment the number of frames since the last HUD calculation
+	m_FramesSinceLastHUDUpdate++;
+	if (m_FramesSinceLastHUDUpdate > m_TargetFramesPerHUDUpdate) {
+		stringstream ssTime;
+		stringstream ssLevel;
+		// Update the time text
+		ssTime << (int)m_TimeRemaining;
+		m_HUD.setTime(ssTime.str());
+		// Update the level text
+		ssLevel << "Level:" << m_LM.getCurrentLevel();
+		m_HUD.setLevel(ssLevel.str());
+		m_FramesSinceLastHUDUpdate = 0;
+	}
 }
